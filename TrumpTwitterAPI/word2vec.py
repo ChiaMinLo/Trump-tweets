@@ -22,5 +22,7 @@ def read_input(input_file):
 # so this becomes a list of lists
 documents = list (read_input (data_file))
 logging.info ("Done reading data file")
-model = gensim.models.Word2Vec (documents, size=150, window=10, min_count=2, workers=10)
+model = gensim.models.Word2Vec (documents, size=50, window=5, min_count=2, workers=10)
 model.train(documents,total_examples=len(documents),epochs=10)
+w1 = "agree"
+model.wv.most_similar (positive=w1)
